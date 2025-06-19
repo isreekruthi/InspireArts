@@ -10,7 +10,7 @@ InspireArts is a fully static website built using HTML5 and CSS3. The site is de
 
 ## Project Overview
 
-This website functions as a space for a music teacher to promote their business and interact with potential clients and parents. I spent years teaching violin and singing through highschool and feel incredibly passionately about bringing art to our local communities in a way that encourages growth and learning for young artists!
+This website serves as a platform for a music teacher to promote their business and connect with potential clients and parents. Drawing on years of experience teaching violin and singing throughout high school, I am passionate about bringing art to local communities and fostering growth and learning for young artists.
 ---
 
 ## Pages & Features
