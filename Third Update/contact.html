@@ -1,0 +1,76 @@
+<!-- Each Page Repeat -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InspireArts - Contact</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="branding">
+      <h1>InspireArts</h1>
+      <p>Bringing music and art to one child at a time</p>
+    </div>
+    <div class="contact-info">
+      <p>Email: info@inspireArts.com | Phone: (222) 222-1111</p>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="scheduling.html">Scheduling</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contact Form -->
+  <main>
+    <h2>Contact Us</h2>
+    <div class="contact-container">
+      <!-- Left: Form -->
+      <form class="contact-form">
+        <label for="from">From:</label>
+        <input type="text" id="from" name="from" required>
+
+        <label for="to">To:</label>
+        <input type="text" id="to" name="to" value="info@inspireArts.com" readonly>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <!-- Picture for Contact -->
+      <div class="contact-side">
+        <img src="images/contact.jpg" alt="Contact" class="contact-img">
+        <div class="contact-details">
+          <p><strong>Email:</strong> info@inspireArts.com</p>
+          <p><strong>Phone:</strong> (222) 222-1111</p>
+          <p><strong>Address:</strong> 123 Inspire Lane, Charlotte, NC</p>
+          <p><strong>Hours:</strong> Mon–Fri, 9am–5pm</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Footer Repeat -->
+  <footer>
+    <p>&copy; 2025 Inspire Arts Studio. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+</body>
+</html>
