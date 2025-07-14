@@ -1,0 +1,77 @@
+<!-- Each Page Repeat -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InspireArts - Scheduling</title>
+  <link rel="stylesheet" href="styles.css" >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="branding">
+      <h1>InspireArts</h1>
+      <p>Bringing music and art to one child at a time</p>
+    </div>
+    <div class="contact-info">
+      <p>Email: info@inspireArts.com | Phone: (222) 222-1111</p>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="scheduling.html">Scheduling</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Schedule a Lesson -->
+  <main>
+    <h2>Schedule a Lesson</h2>
+    <p>Please fill out the form below and we'll get back to you soon!</p>
+    
+    <form class="schedule-form" autocomplete="off" action="https://formspree.io/f/xovwrqvy" method="POST">
+      <label for="parentName">Parent's Name:</label>
+      <input type="text" id="parentName" name="parentName" required>
+      
+      <label for="childName">Child's Name:</label>
+      <input type="text" id="childName" name="childName" required>
+      
+      <label for="service">Select Service:</label>
+        <select id="service" name="service" required>
+          <option value="">--Please choose an option--</option>
+          <option value="painting">Painting</option>
+          <option value="singing">Singing</option>
+          <option value="violin">Violin</option>
+          <option value="sculpture">Sculpture</option>
+        </select>
+
+      <label for="date">Requested Day:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Special Message:</label>
+      <textarea id="message" name="message" rows="4"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+
+  <!-- Footer Repeat -->
+  <footer>
+    <p>&copy; 2025 Inspire Arts Studio. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+</body>
+</html>

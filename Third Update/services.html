@@ -1,4 +1,5 @@
 <!-- Each Page Repeat -->
+<!-- See index.html for documentation -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +25,8 @@
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
+      <!-- 'active' allows you to style the page button for the tab you're currently on -->
+      <!-- the user is easily able to see what page they're currently using -->
       <li><a href="services.html" class="active">Services</a></li>
       <li><a href="scheduling.html">Scheduling</a></li>
       <li><a href="gallery.html">Gallery</a></li>
@@ -31,20 +34,27 @@
     </ul>
   </nav>
 
-  <!-- Lesson Types -->
+  <!-- LESSON TYPES -->
   <main>
     <h2>Our Lesson Types</h2>
 
+    <!-- 'accordion' is the container for the entire section through line 84 -->
     <div class="accordion">
+    <!-- each of the 4 types of lessons are separated by the 'accordion-item', a collapsible item -->
+    <!-- we use 'class' instead of 'id'(see line 88) as there are multiple accordion items -->
       <div class="accordion-item">
+        <!-- 'accordion-label' is the title of the button-->
         <button class="accordion-label">Painting</button>
+        <!-- 'accordion-content' defines the details that come up when you click the button -->
         <div class="accordion-content">
         <p><strong>Duration:</strong> 45 minutes</p>
         <p><strong>Price:</strong> $50 per session</p>
+        <!-- each lesson description written by AI -->
         <p>Students will learn foundational painting techniques in a supportive and stress-free environment designed to foster creativity and confidence. Through carefully guided lessons, your child will explore color theory, brushwork, and composition while developing their own unique artistic style. These sessions not only nurture artistic skills but also encourage self-expression and critical thinking, allowing you to witness your little artist’s growth and enthusiasm firsthand.</p>
       </div>
     </div>
 
+    <!-- FUN FACT: I took violin, singing, and piano:) -->
     <div class="accordion-item">
       <button class="accordion-label">Singing</button>
         <div class="accordion-content">
@@ -72,12 +82,16 @@
       </div>
     </div>
 
-<!-- PopUp Policies -->
+<!-- PAYMENT POLICIES -->
 <div class="policies-section">
+  <!-- 'openModalBtn' is the button you would click -->
+  <!-- we use 'id' here to define a single, unique element; allowing us to target this modal later -->
   <button id="openModalBtn">View Lesson & Payment Policies</button>
-
+  <!-- this is our modal container -->
   <div id="policyModal" class="modal">
+    <!-- visible content -->
     <div class="modal-content">
+      <!-- this is our close/x button; '&times' is the best way to effectively render the x -->
       <span class="close-modal">&times;</span>
       <h3>Lesson & Payment Policies</h3>
       <ul>
@@ -90,14 +104,13 @@
   </div>
 </div>
 
-
     <div class="schedule-reminder">
         <p>Ready to begin? <a href="scheduling.html">Schedule your first lesson in the Scheduling tab</a>.</p>
     </div>
 
   </main>
 
-<!-- Footer Repeat-->
+<!-- FOOTER -->
   <footer>
     <p>&copy; 2025 Inspire Arts Studio. All rights reserved.</p>
     <div class="social-icons">
@@ -107,6 +120,7 @@
     </div>
   </footer>
 
+  <!-- for functionality of our modal and accordion -->
   <script src="script.js"></script>
 
 </body>

@@ -1,4 +1,5 @@
 <!-- Each Page Repeat -->
+<!-- See index.html for documentation -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,19 +26,21 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="scheduling.html">Scheduling</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Photo Submission Form -->
+  <!-- PHOTO SUBMISSION FORM -->
   <main>
     <h2>Gallery Showcase</h2>
-  <div class="carousel-container">
-    <button class="carousel-btn prev">&#10094;</button>
-
-    <div class="carousel-slide">
-      <!-- Slides go here -->
+    <!-- 'carousel-container' wraps the navigation buttons and the carousel -->
+    <div class="carousel-container">
+      <!-- class for styling, '&#10094' is the HTML entity for the clickable arrow -->
+      <button class="carousel-btn prev">&#10094;</button>
+      
+      <div class="carousel-slide">
+      <!-- one slide should be active at a time -->
       <div class="carousel-item active">
         <img src="images/art1.jpg" alt="Student artwork 1">
       </div>
@@ -49,19 +52,22 @@
       </div>
       <div class="carousel-item">
         <video controls>
+          <!-- FUN FACT: this is me and my brother:)-->
           <source src="images/HappyNewYear.mp4" type="video/mp4">
         </video>
       </div>
       <!-- Add more picture and videos here -->
     </div>
-
     <button class="carousel-btn next">&#10095;</button>
   </div>
   <!-- PAY FOR FormSpree? OR sub different form here -->
   <h2>Gallery Submissions</h2>
     <p>We love seeing our students' creativity! Submit a photo or video of your artwork or performance below:</p>
 
+    <!-- 'enctype...' tells the browser that the submission will include both text input and file upload -->
     <form class="gallery-form" enctype="multipart/form-data">
+
+      <!-- all 3 inputs are required to help prompt the user -->
       <label for="from">From:</label>
       <input type="text" id="from" name="from" required>
 
@@ -88,7 +94,7 @@
 
   </main>
 
-  <!-- Footer Repeat -->
+  <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 Inspire Arts Studio. All rights reserved.</p>
     <div class="social-icons">

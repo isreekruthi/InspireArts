@@ -1,4 +1,6 @@
 <!-- Each Page Repeat -->
+<!-- See index.html for documentation -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,17 +26,18 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="scheduling.html">Scheduling</a></li>
+      <li><a href="scheduling.html" class="active">Scheduling</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Schedule a Lesson -->
+  <!-- SCHEDULING FORM -->
   <main>
     <h2>Schedule a Lesson</h2>
     <p>Please fill out the form below and we'll get back to you soon!</p>
     
+    <!-- form will not automatically fill in the blanks and sends info after submission to FormSpree(no backend)-->
     <form class="schedule-form" autocomplete="off" action="https://formspree.io/f/xovwrqvy" method="POST">
       <label for="parentName">Parent's Name:</label>
       <input type="text" id="parentName" name="parentName" required>
@@ -44,13 +47,16 @@
       
       <label for="service">Select Service:</label>
         <select id="service" name="service" required>
+          <!-- empty value requires user to select an option -->
           <option value="">--Please choose an option--</option>
           <option value="painting">Painting</option>
           <option value="singing">Singing</option>
           <option value="violin">Violin</option>
           <option value="sculpture">Sculpture</option>
-        </select>
 
+        </select>
+      
+      <!-- HTML5 date selector -->
       <label for="date">Requested Day:</label>
       <input type="date" id="date" name="date" required>
 
@@ -64,7 +70,7 @@
     </form>
   </main>
 
-  <!-- Footer Repeat -->
+  <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 Inspire Arts Studio. All rights reserved.</p>
     <div class="social-icons">
