@@ -80,13 +80,17 @@
       <button type="submit">Submit</button>
     </form>
 
+    <!-- allows the user to search for their favorite artist(API)-->
     <section class="artist-search">
       <h3>Want more inspiration? Search here!</h3>
       <p>Feel free to come to your lessons with a vision!</p>
       <p>You can search your favorite artist and find songs from them! We can learn these songs together!</p>
+      <!--text input field with a placeholder to prompt the user-->
       <input type="text" id="artistInput" placeholder="Enter an artist's name..." />
+      <!--button that says 'Search'; script.js will use this input to call the API-->
       <button id="searchArtistBtn">Search</button>
     
+      <!--empty containers for script.js to use-->
       <div id="artistList" class="api-message"></div>
       <div id="songList" class="api-message"></div>
 

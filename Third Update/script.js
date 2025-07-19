@@ -177,29 +177,42 @@ if (searchBtn && artistInput && artistList && songList) {
       });
   });
 
+  //function takes 2 parameters, 'artistId'(readable by the API) and 'artistName'(display)
   function fetchRecordingsForArtist(artistId, artistName) {
+    //sets HTML content inside 'songList' with a loading message
     songList.innerHTML = `<p>Loading songs for <strong>${artistName}</strong>...</p>`;
 
+    //fetches up to 10('limit=10') recordings from the API, filtered by the artist's ID; 'fmt=json' ensures formatting
     fetch(`https://musicbrainz.org/ws/2/recording?artist=${artistId}&limit=10&fmt=json`)
+      //waits for response and converts it to usable JSON
       .then(res => res.json())
       .then(data => {
+        //if there are recordings,
         if (data.recordings && data.recordings.length > 0) {
+          //'innerHTML' will clear the existing loading message and begin a list of the found recordings
           songList.innerHTML = `<h4>Songs by ${artistName}:</h4><ul>`;
-          //filter out junk
+          //filter out junk by removing songs wrapped in []
+          //creates a new array called 'filter' which loops through the existing array, 'data.recordings'
+          //the new array will only keep songs, 'r', which do NOT match the pattern
           const cleanSongs = data.recordings.filter(r => !r.title.match(/^\[.*\]$/));
+          //if there are clean songs
           if (cleanSongs.length > 0) {
             cleanSongs.forEach(recording => {
+              //we add each one as a 'li' to out list
               songList.innerHTML += `<li>${recording.title}</li>`;
             });
+            //otherwise we display the following message
           } else {
             songList.innerHTML = "No clean songs found.";
           }
-
+          //close the 'ul' element after printing the appropriate outputs
           songList.innerHTML += `</ul>`;
+          //if no recording are found at all
         } else {
           songList.innerHTML = "No songs found.";
         }
       })
+      //if there's no internet, JSON doesn't parse, API is down, etc, it shows a message to the user to indicate failure
       .catch(() => {
         songList.textContent = "Sorry! Could not fetch songs.";
       });
