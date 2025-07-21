@@ -1,51 +1,34 @@
-/* Main Format - General*/
+/* GENERAL FORMAT */
+/* this allows me to easily apply styling to the everything, like a default. '*' refers to the universal selector/every element on the page;
+'margin' refers to the default space, set by the browser, outside of elements;
+'padding' refers to the default space inside elements */
 * {
   margin: 0;
   padding: 0;
+  /* line 9 makes it so padding and borders are already included in height and width. this allows for more efficient styling of elements */
   box-sizing: border-box;
 }
 
+/* GENERAL - BODY */
+/* allows styling for the body of a page */
 body {
   font-family: Arial, sans-serif;
+  /* adds vertical spacing between lines for readability */
   line-height: 1.6;
+  /* light grey background and dark font for accessibility(contrast and visibility) */
   background-color: #f9f9f9;
   color: #333;
 }
 
-/*Welcome Section*/
-.welcome-section {
-  display: flex;
-  align-items: center;
+/* GENERAL - MAIN */
+/* allows styling for the main section of a page */
+main {
+  padding: 1em;
   max-width: 900px;
-  margin: 2em auto;
-  gap: 2em;
-  padding: 0 1em;
+  margin: auto;
 }
 
-/*Teacher Picture*/
-.welcome-img {
-  max-width: 200px;
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* Text on Welcome Page */
-.welcome-text {
-  flex: 1;
-  text-align: right;
-  line-height: 1.5;
-  font-size: 1.1rem;
-}
-
-/*Format for the paragraph spacing*/
-.welcome-text p {
-  margin-bottom: 1.2em;
-}
-
-
-/* Header styles */
+/* HEADER */
 header {
   background-color: #75d2ad;
   padding: 1em;
@@ -56,7 +39,7 @@ header {
   margin-top: 0.5em;
 }
 
-/* Nav bar styles */
+/* NAVIGATION BAR */
 nav {
   background-color: #0c3b2e;
 }
@@ -81,14 +64,7 @@ nav ul li a:hover {
   border-radius: 5px;
 }
 
-/* Main content */
-main {
-  padding: 1em;
-  max-width: 900px;
-  margin: auto;
-}
-
-/* Footer Style */
+/* FOOTER */
 footer {
   background-color: #222;
   color: white;
@@ -101,6 +77,55 @@ footer {
   color: white;
   margin: 0 10px;
   font-size: 1.2rem;
+}
+
+/* INDEX PAGE */
+/* defines styling for the entire 'welcome-section', line 44-53 in index.html */
+.welcome-section {
+  /* since the image and associated text are children of our 'welcome-section', the 'flex' value makes this section a flexbox;
+  the flexbox will align items horizontally as its default setting. essentially, the image and text will sit next to one another */
+  display: flex;
+  /* aligned within the flexbox */
+  align-items: center;
+  /* the next 4 lines of code allow the text and image to be padded and properly spaced*/
+  /* 'max-width' keeps it from stretching too much when displayed on a larger screen;
+  'margin' defines a vertical spacing of '2em' and 'auto' will center the section from the horizontal edges of the page;
+  'gap' will add space between the child elements, image and text, and 'padding' adds horizontal padding against the edge of the screen(for smaller screens.)
+  'em' refers to a relative unit of measurement; '2em' is 2 times the current font size, where 'em' is the font size of the parent or current element */
+  max-width: 900px;
+  margin: 2em auto;
+  gap: 2em;
+  padding: 0 1em;
+}
+
+/* teacher picture */
+.welcome-img {
+  /* 'max-width' sets a width maximum for the image and 'width' makes it responsive;
+  the image will stretch and shrink based on the screen but not exceed the 'max-width';
+  'height' is set to auto so the image's aspect ratio can automatically adjust */
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  /* 'border-radius' rounds the corners of the image and 'box-shadow' adds a shadow effect to give the image some separation from the background */
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* text on welcome page, next to the image */
+.welcome-text {
+  /* 'flex: 1' tells this section to take the remaining space in the previously assigned flexbox */
+  flex: 1;
+  /* 'justify' gives it a nicely aligned appearance */
+  text-align: justify;
+  /* the vertical spacing and font size increase are meant to provide better readability */
+  line-height: 1.7;
+  font-size: 1.2rem;
+}
+
+/* styling for under 'welcome-text' */
+/* all we're really doing is slightly adjusting the spacing for lines 49, 50, and 51 from index.html, those are the lines with a <p> tag */
+.welcome-text p {
+  margin-bottom: 1.5em;
 }
 
 /*Services Page*/
