@@ -4,7 +4,7 @@
 InspireArts is a fully static website built using HTML5 and CSS3. The site is designed to help parents of young children (ages 2–12) explore personalized art and music instruction options. It provides an engaging, intuitive experience for discovering services, scheduling lessons, and submitting creative work.
 
 **Live Project:**  
-https://webpages.charlotte.edu/sinugan1/itis3135/Project4/index.html
+https://webpages.charlotte.edu/sinugan1/InspireArts/ThirdUpdate/index.html
 
 ---
 
