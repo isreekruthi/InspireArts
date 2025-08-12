@@ -15,25 +15,31 @@ body {
   font-family: Arial, sans-serif;
   /* adds vertical spacing between lines for readability */
   line-height: 1.6;
-  /* light grey background and dark font for accessibility(contrast and visibility) */
+  /* light background and dark font for accessibility(contrast and visibility) */
   background-color: #f9f9f9;
-  color: #333;
+  /* line 21 defines the color of the font in the header, certain titles like "Our Lesson Types", and most writing in the body of each page */
+  color: #403440;
 }
 
 /* GENERAL - MAIN */
 /* allows styling for the main section of a page */
 main {
+  /* '1em' padding will set the space inside the element, between the content and border, to the size of the current font; breathing room */
   padding: 1em;
+  /* 'max-width' sets the maximum width of the element, it can be smaller than this size but never bigger(adjusts for larger screens);
+  'margin: auto' combined with the 'max-width' centers the element on our page */
   max-width: 900px;
   margin: auto;
 }
 
 /* HEADER */
 header {
-  background-color: #75d2ad;
+  /* our header, in light pink, is centered vertically and horizontally */
+  background-color: #fabcf8;
   padding: 1em;
   text-align: center;
 }
+/* our contact info, easily found at the top of the page, is slightly smaller in font */
 .contact-info {
   font-size: 0.9em;
   margin-top: 0.5em;
@@ -41,26 +47,37 @@ header {
 
 /* NAVIGATION BAR */
 nav {
-  background-color: #0c3b2e;
+  background-color: #403440;
 }
 
 nav ul {
+  /* first, we remove the default bullet points */
   list-style: none;
+  /* turning the list into a flex container makes it easier to align in a row */
   display: flex;
+  /* we want the navigation bar's items to be spaced evenly */
   justify-content: space-around;
+  /* 'padding' adds an equal amount of internal spacing and 'margin' set to 0 removes the defauly spacing outside the list */
   padding: 1em;
   margin: 0;
 }
 
 nav ul li a {
+  /* while 'background-color' sets a color for the space itself, 'color' sets the font color */
   color: white;
+  /* removing 'text-decoration' removes an underline */
   text-decoration: none;
   font-weight: bold;
+  /* the spacing inside each link is as follows: top/bottom -> 0.5em & left/right -> 1em */
   padding: 0.5em 1em;
 }
 
+/* styling the various buttons on the website to "popup" or appear differently when the user hovers over them indicates a functioning website and button;
+it provides a smoother user experience and is visually more appealing*/
 nav ul li a:hover {
-  background-color: #146c54;
+  /* when you hover over the navigation buttons/links, the background color of the text becomes lighter;
+  'border-radius' creates a softer/rounded border on the button */
+  background-color: #985c96;
   border-radius: 5px;
 }
 
@@ -70,9 +87,13 @@ footer {
   color: white;
   text-align: center;
   padding: 1em 0;
+  /* 'margin-top' specifies the margin above an element */
   margin-top: 2em;
 }
 
+/* although there is no social media to link, we have styling for the icons which can be linked in the future.
+line 61 in index.html uses a '#' to link each icon to the top of the page but this can be replaced in the future with a social media link.
+We don't have any styling for the hover aspect of this button as, in my opinion, it would appear more disfunctional to highlight the button when it goes, essentially, nowhere.*/
 .social-icons a {
   color: white;
   margin: 0 10px;
@@ -108,7 +129,7 @@ footer {
   height: auto;
   /* 'border-radius' rounds the corners of the image and 'box-shadow' adds a shadow effect to give the image some separation from the background */
   border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px #403440;
 }
 
 /* text on welcome page, next to the image */
@@ -128,85 +149,89 @@ footer {
   margin-bottom: 1.5em;
 }
 
-/*Services Page*/
+/* SERVICES PAGE */
+/* as our services page is almost completely comprised of UI components/interactive elements, our styling is more easily split up. */
+/* aligns the title 'Our Lesson Types'; see line 39 in services.html */
 main h2 {
   text-align: center;
+  /* 'margin-bottom' sets space under the title, separating the title and accordion */
   margin-bottom: 1.5em;
 }
 
-.lesson {
-  background-color: #e6f0f3;
-  border-radius: 8px;
-  padding: 1.5em 2em;
-  margin-bottom: 1.5em;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.lesson h3 {
-  margin-top: 0;
-  color: #0c3b2e;
-}
-
-.lesson p {
-  margin: 0.5em 0;
-}
-
-/*Services Accordion*/
+/* SERVICES - ACCORDION */
+/* adding vertical spacing below our accordion keeps it visually separated from the modal below it*/
 .accordion {
   margin-bottom: 2em;
 }
 
 .accordion-item {
+  /* each item in the accordion(the sections coding singing, piano, etc) are styled as follows */
+  /* a light color behind the font color(line 21) */
   background-color: #e6f0f3;
+  /* 'border-radius' = rounded corners */
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  /* the syntax for styling the box shadow is as follows 'box-shadow: horizontalOffset verticalOffset blurRadius';
+  '0' says it will stay centered(horizontally), '2px' says the shadow will appear 2 pixels below the element, and '6px' will blur the shadow(larger amount=softer/more spread)*/
+  box-shadow: 0 2px 6px #403440;
+  /* providing space between the accordion items allows for better visibility */
   margin-bottom: 1em;
+  /* we want the content to stay inside the accordion when we close each item */
   overflow: hidden;
 }
 
 .accordion-label {
-  background-color: #609d6c;
-  color: #0c3b2e;
+  /* here, we style the clickable label for each accordion header */
+  background-color: #dea4dc;
+  color: #403440;
+  /* the user's cursor turns into a pointer when they hover over the button */
   cursor: pointer;
   padding: 1.2em 1.5em;
   width: 100%;
   border: none;
-  text-align: left;
+  text-align: center;
   font-size: 1.1rem;
   font-weight: bold;
+  /* 'position: relative' allows us to style the "open/close" icons on the right side of each label */
   position: relative;
-  transition: background-color 0.3s ease;
 }
 
 .accordion-label::after {
+  /* here we style the '+' icon seen to the right of the label */
   content: '+';
   position: absolute;
   right: 1.5rem;
   font-size: 1.4rem;
-  transition: transform 0.3s ease;
 }
 
 .accordion-label.active::after {
+  /* when the accordion item is open/in an active state, the icon changes to '-';
+  we add the 'active' class, used in our script.js file */
   content: '-';
 }
 
 .accordion-content {
+  /* this defines styling for the content inside the accordion items; 'max-height' will keep
+  the items closed until theyre opened and 'overflow' set to 'hidden' further confirms this so the item
+  will stay "closed" until clicked on */
   max-height: 0;
   overflow: hidden;
   padding: 0 1.5em;
   background-color: #ffffff;
+  /* 'transition' will animate the open and closing of each item to 0.5 seconds and 0.3 seconds
+  for the height and padding, respectively */
   transition: max-height 0.5s ease, padding 0.3s ease;
 }
 
 .accordion-content p {
-  margin: 0.8em 0;
+  margin: 0.8em;
+  margin-bottom: 1.5em;
 }
 
 .accordion-label.active + .accordion-content {
   padding: 1em 1.5em;
 }
 
-/* Modal/PopUp Styles */
+/* SERVICES - MODAL/POPUP */
 .modal {
   display: none;
   position: fixed;
@@ -233,7 +258,7 @@ main h2 {
   right: 16px;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #0c3b2e;
+  color: #dea4dc;
   font-weight: bold;
 }
 
@@ -241,7 +266,7 @@ main h2 {
   margin: 2em auto;
   display: block;
   padding: 0.8em 1.5em;
-  background-color: #0c3b2e;
+  background-color: #403440;
   color: white;
   border: none;
   border-radius: 5px;
@@ -250,10 +275,10 @@ main h2 {
 }
 
 #openModalBtn:hover {
-  background-color: #146c54;
+  background-color: #dea4dc;
 }
 
-/*Scheduling Reminder format on Services Page*/
+/* SERVICES - SCHEDULING REMINDER */
 .schedule-reminder {
   text-align: center;
   margin-top: 2em;
@@ -261,16 +286,16 @@ main h2 {
 }
 
 .schedule-reminder a {
-  color: #0c3b2e;
+  color: #403440;
   text-decoration: underline;
   font-weight: bold;
 }
 
 .schedule-reminder a:hover {
-  color: #146c54;
+  color: #dea4dc;
 }
 
-/*Scheduling Page*/
+/* SCHEDULING PAGE */
 .schedule-form {
   max-width: 600px;
   margin: 2em auto;
@@ -298,7 +323,7 @@ main h2 {
 
 .schedule-form button {
   padding: 0.8em;
-  background-color: #0c3b2e;
+  background-color: #403440;
   color: white;
   border: none;
   border-radius: 5px;
@@ -308,10 +333,10 @@ main h2 {
 }
 
 .schedule-form button:hover {
-  background-color: #146c54;
+  background-color: #dea4dc;
 }
 
-/*Gallery Page */
+/* GALLERY PAGE */
 .gallery-form {
   max-width: 600px;
   margin: 2em auto;
@@ -339,7 +364,7 @@ main h2 {
 
 .gallery-form button {
   padding: 0.8em;
-  background-color: #0c3b2e;
+  background-color: #403440;
   color: white;
   border: none;
   border-radius: 5px;
@@ -349,10 +374,10 @@ main h2 {
 }
 
 .gallery-form button:hover {
-  background-color: #146c54;
+  background-color: #dea4dc;
 }
 
-/* Gallery Carousel */
+/* GALLERY - CAROUSEL */
 .carousel-container {
   position: relative;
   max-width: 700px;
@@ -360,7 +385,7 @@ main h2 {
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  background-color: #061908;
+  background-color: #403440;
   height: 400px; /* Fixed height to keep layout stable */
 }
 
@@ -401,7 +426,7 @@ main h2 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #123617;
+  background-color: #403440;
   border: none;
   color: white;
   font-size: 2rem;
@@ -414,7 +439,7 @@ main h2 {
 }
 
 .carousel-btn:hover {
-  background-color: rgba(12, 59, 46, 1);
+  background-color: #dea4dc;
 }
 
 .carousel-btn.prev {
@@ -425,7 +450,7 @@ main h2 {
   right: 1rem;
 }
 
-/* API */
+/* GALLERY - API */
 .artist-search {
   margin-top: 3em;
   text-align: center;
@@ -459,7 +484,7 @@ main h2 {
 #searchArtistBtn {
   padding: 0.5em 1em;
   margin-left: 0.5em;
-  background-color: #4caf50;
+  background-color: #403440;
   color: white;
   border: none;
   border-radius: 6px;
@@ -467,7 +492,7 @@ main h2 {
 }
 
 #searchArtistBtn:hover {
-  background-color: #45a049;
+  background-color: #dea4dc;
 }
 
 .api-message {
@@ -477,7 +502,7 @@ main h2 {
 }
 
 
-/*Contact Page*/
+/* CONTANT PAGE */
 .contact-container {
   display: flex;
   flex-wrap: wrap;
@@ -504,7 +529,7 @@ main h2 {
 
 .contact-form button {
   padding: 0.8em;
-  background-color: #0c3b2e;
+  background-color: #403440;
   color: white;
   border: none;
   border-radius: 5px;
@@ -514,7 +539,7 @@ main h2 {
 }
 
 .contact-form button:hover {
-  background-color: #146c54;
+  background-color: #dea4dc;
 }
 
 .contact-side {
