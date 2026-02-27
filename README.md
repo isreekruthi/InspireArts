@@ -1,4 +1,4 @@
-# InspireArts
+# InspireArts - REWORKING
 **An Educational Website for Children's Art and Music Lessons**
 
 InspireArts is a fully static website built using HTML5 and CSS3. The site is designed to help parents of young children (ages 2–12) explore personalized art and music instruction options. It provides an engaging, intuitive experience for discovering services, scheduling lessons, and submitting creative work.
