@@ -1,44 +1,91 @@
-# InspireArts - REWORKING
+# REWORKING
+# InspireArts – Secure Full-Stack Web Application
 **An Educational Website for Children's Art and Music Lessons**
 
-InspireArts is a fully static website built using HTML5 and CSS3. The site is designed to help parents of young children (ages 2–12) explore personalized art and music instruction options. It provides an engaging, intuitive experience for discovering services, scheduling lessons, and submitting creative work.
+InspireArts is a full-stack web application originally built as a static portfolio site and later redesigned with a secure backend architecture. The project demonstrates modern web development practices with an emphasis on secure application design, API integration, and backend security controls.
 
-**Live Project:**  
+The platform showcases artwork and music while serving as a practical implementation of secure web development principles relevant to cybersecurity roles.
+
+This project highlights the transition from a basic static website to a secure, maintainable full-stack application using Node.js and Express.
+
+**Live Project - To be updated:**  
 https://webpages.charlotte.edu/sinugan1/InspireArts/ThirdUpdate/index.html
 
 ---
 
-## Project Overview
+## Key Features
 
-This website serves as a platform for a music teacher to promote their business and connect with potential clients and parents. Drawing on years of experience teaching violin and singing throughout high school, I am passionate about bringing art to local communities and fostering growth and learning for young artists.
----
+- Responsive front-end interface for showcasing artwork and music
 
-## Pages & Features
+- Node.js / Express backend architecture
 
-- **Home (`index.html`)**  
-  Introduction to InspireArts and its mission with a welcoming layout and clear navigation.
+- Secure HTTP headers using Helmet
 
-- **Services (`services.html`)**  
-  Outlines different lesson types (Painting, Singing, Violin, Sculptures), with duration, pricing, and brief descriptions.
+- Rate limiting to mitigate automated abuse
 
-- **Scheduling (`scheduling.html`)**  
-  A form where parents can submit their name, child's name, desired service, date, email, and an optional message.
+- Environment variable management using dotenv
 
-- **Gallery (`gallery.html`)**  
-  Highlights artwork and performances; includes a form for submitting media with name and message.
+- Static asset serving through an Express backend
 
-- **Contact (`contact.html`)**  
-  Split layout with a message form on the left and contact image/info on the right (photo + phone/email details).
+- Structured project architecture separating frontend and server components
+
+- Integration with external music data APIs
 
 ---
 
-## Technologies Used
+## Security Implementations
 
-- **HTML5** – semantic, standards-compliant structure  
-- **CSS3** – clean, readable styling  
-- **Font Awesome** – iconography  
-- **VS Code** – primary code editor  
-- **FileZilla** – FTP deployment to UNC Charlotte student server
+This project incorporates several security practices commonly used in production web applications:
+
+- Helmet middleware for secure HTTP headers
+- Rate limiting to reduce brute-force and abuse attempts
+- CORS configuration to control cross-origin requests
+- Environment variable protection using .env files
+- Backend API routing to reduce exposure of external services
+- Input validation groundwork for future secure endpoints
+
+These features demonstrate awareness of OWASP-aligned security principles in web development.
 
 ---
 
+## Tech Stack
+
+- **Frontend** – HTML, CSS, JavaScript  
+- **Backend** – Node.js, Express.js 
+- **Security & Middleware** – Helmet, express-rate-limit, CORS, dotenv, Morgan logging
+
+---
+
+## Project Structure
+
+InspireArts 
+│ 
+├── public/           # Frontend assets 
+│     ├── index.html 
+│     ├── styles.css 
+│     ├── script.js 
+│     └── images/ 
+│ 
+├── server/           # Backend application 
+│     ├── server.js 
+│     ├── package.json 
+│     ├── package-lock.json 
+│     └── node_modules/ 
+│ 
+├── .gitignore 
+└── README.md
+---
+## Future Improvements
+
+Planned enhancements for continued development include:
+
+- JWT-based authentication system
+- Secure admin dashboard
+- File upload handling with validation
+- Request logging and monitoring
+- Stronger input validation and sanitization
+- Content Security Policy implementation
+- Containerization with Docker
+- CI/CD deployment pipeline
+
+---
