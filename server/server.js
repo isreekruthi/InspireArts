@@ -20,7 +20,22 @@ if (!process.env.PORT) {
 //SEC MIDDLEWARE
 
 //add secure http headers
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "https://cdnjs.cloudflare.com"],
+        styleSrc: ["'self'", "https://cdnjs.cloudflare.com"],
+        imgSrc: ["'self'", "data:"],
+        connectSrc: ["'self'"],
+        fontSrc: ["'self'", "https://cdnjs.cloudflare.com"],
+        objectSrc: ["'none'"],
+        upgradeInsecureRequests: []
+      }
+    }
+  })
+);
 
 //enable cors - STILL TIGHTEN!!!!!!!!!!! origin: allowed origin, something like that
 //prevent randoms
