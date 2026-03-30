@@ -63,6 +63,12 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 50, // stricter than global
+  message: "Too many API requests, please try again later."
+});
+
 //FRONTEND FILES
 
 //move front end into "public"
@@ -79,12 +85,14 @@ app.get('/api/health', (req, res) => {
 //MUSIC SEARCH API
 app.get(
   "/api/search-artist",
+  apiLimiter,
   [
     query("artist")
       .trim()
       .escape()
       .isLength({ min: 1, max: 100 })
-      .withMessage("Invalid artist name")
+      .matches(/^[a-zA-Z0-9\s.'-]+$/)
+      .withMessage("Invalid artist name format")
   ],
   async (req, res) => {
 
@@ -103,7 +111,8 @@ app.get(
 
       // Call MusicBrainz securely from backend
       const response = await axios.get(
-        `https://musicbrainz.org/ws/2/artist/?query=${encodeURIComponent(artistName)}&fmt=json`
+        `https://musicbrainz.org/ws/2/artist/?query=${encodeURIComponent(artistName)}&fmt=json`,
+        { timeout: 5000 }
       );
 
       res.json(response.data);
