@@ -1,7 +1,5 @@
 require('dotenv').config();
 
-const axios = require("axios");
-const { query, validationResult } = require("express-validator");
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
@@ -19,7 +17,7 @@ if (!process.env.PORT) {
 
 //SEC MIDDLEWARE
 
-//add secure http headers
+//helmet with CSP
 app.use(
   helmet({
     contentSecurityPolicy: {
@@ -54,7 +52,7 @@ app.use(express.json());
 //logging
 app.use(morgan('combined'));
 
-//rate limiting
+//global rate limiting
 //protects brute force & spam
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, //15 min
@@ -69,63 +67,23 @@ const apiLimiter = rateLimit({
   message: "Too many API requests, please try again later."
 });
 
-//FRONTEND FILES
+//FRONTEND FILES / STATIC
 
 //move front end into "public"
 app.use(express.static(path.join(__dirname, '../public')));
 
-//test route
 
+//routes
+const authRoutes = require('./routes/authRoutes');
+const apiRoutes = require('./routes/apiRoutes');
+
+app.use('/api', apiRoutes);
+app.use('/api', authRoutes);
+
+// Health check route
 app.get('/api/health', (req, res) => {
   res.json({ status: "Secure server running." });
 });
-
-//start server
-
-//MUSIC SEARCH API
-app.get(
-  "/api/search-artist",
-  apiLimiter,
-  [
-    query("artist")
-      .trim()
-      .escape()
-      .isLength({ min: 1, max: 100 })
-      .matches(/^[a-zA-Z0-9\s.'-]+$/)
-      .withMessage("Invalid artist name format")
-  ],
-  async (req, res) => {
-
-    try {
-
-      // Validate input
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        return res.status(400).json({
-          error: "Invalid input",
-          details: errors.array()
-        });
-      }
-
-      const artistName = req.query.artist;
-
-      // Call MusicBrainz securely from backend
-      const response = await axios.get(
-        `https://musicbrainz.org/ws/2/artist/?query=${encodeURIComponent(artistName)}&fmt=json`,
-        { timeout: 5000 }
-      );
-
-      res.json(response.data);
-
-    } catch (err) {
-      console.error(err.message);
-
-      res.status(500).json({
-        error: "Failed to fetch artist data"
-      });
-    }
-  }
-);
 
 //global error handler
 //prevent stack trace leak, improper error responses
@@ -137,6 +95,7 @@ app.use((err, req, res, next) => {
   });
 });
 
+//start server
 app.listen(PORT, () => {
   console.log(`Server running securely on port ${PORT}`);
 });
