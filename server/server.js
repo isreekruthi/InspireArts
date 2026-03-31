@@ -18,9 +18,15 @@ if (!process.env.PORT) {
 //SEC MIDDLEWARE
 
 //helmet with CSP
+//protect responsed before they reach browser
+//implements clickjacking protection
+//XSS protection headers
 app.use(
   helmet({
     contentSecurityPolicy: {
+      //CSP is a rule we send to the browser that says "only load from these trusted places"
+      //only takes JS from my site & cdnjs
+      //protects XSS attacks, malicious injected scripts
       directives: {
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'", "https://cdnjs.cloudflare.com"],
